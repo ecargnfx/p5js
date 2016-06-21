@@ -1,33 +1,32 @@
-/*
- * @name Slider
- * @description You will need to include the 
- * <a href="http://p5js.org/reference/#/libraries/p5.dom">p5.dom library</a>
- * for this example to work in your own project.<br><br>
- * Move the sliders to control the R, G, B values of the background.
- */
-var rSlider, gSlider, bSlider;
+var bgcolor;
+var button;
+// var bigger;
+
 
 function setup() {
-  // create canvas
-  createCanvas(710, 400);
-  textSize(15)
-  noStroke();
+  canvas = createCanvas(200, 200);
+  bgcolor = color(200);
+  button = createButton("go go go go");// create button element
+  button.mousePressed(changeColor);
 
-  // create sliders
-  rSlider = createSlider(0, 255, 100);
-  rSlider.position(20, 20);
-  gSlider = createSlider(0, 255, 0);
-  gSlider.position(20, 50);
-  bSlider = createSlider(0, 255, 255);
-  bSlider.position(20, 80);
+  
 }
 
+function changeColor() {
+  bgcolor = color(random(255))
+  // bigger = random(20,50);
+  
+}
+
+// function mousePressed() {
+//   changeColor();
+// }
+
+
 function draw() {
-  var r = rSlider.value();
-  var g = gSlider.value();
-  var b = bSlider.value();
-  background(r, g, b);
-  text("red", 165, 35);
-  text("green", 165, 65);
-  text("blue", 165, 95);
+  background(bgcolor);
+  fill(255, 0, 175);
+  rect(100,100,50,50);
+  // rect(100, 100, bigger, bigger);
+
 }
